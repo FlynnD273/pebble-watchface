@@ -24,9 +24,9 @@
     "resources": {
       "media": [
         {
-          "characterRegex": "[0-9:A-Za-z ]",
-          "file": "fonts/ChivoMono-Black.ttf",
-          "name": "FONT_CHIVO_61",
+          "characterRegex": "[0-9]",
+          "file": "fonts/Dangrek-Regular.ttf",
+          "name": "FONT_MAIN_75",
           "targetPlatforms": null,
           "type": "font"
         }
