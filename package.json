@@ -1,0 +1,36 @@
+{
+  "name": "Custom Watchface",
+  "author": "Flynn Duniho",
+  "version": "1.0.0",
+  "keywords": [
+    "pebble-app"
+  ],
+  "private": true,
+  "dependencies": {},
+  "pebble": {
+    "displayName": "Custom Watchface",
+    "uuid": "b67c4a29-1449-4093-8224-20f26c946a59",
+    "sdkVersion": "3",
+    "enableMultiJS": true,
+    "targetPlatforms": [
+      "aplite",
+      "basalt",
+      "chalk",
+      "diorite"
+    ],
+    "watchapp": {
+      "watchface": true
+    },
+    "resources": {
+      "media": [
+        {
+          "characterRegex": "[0-9:A-Za-z ]",
+          "file": "fonts/ChivoMono-Black.ttf",
+          "name": "FONT_CHIVO_61",
+          "targetPlatforms": null,
+          "type": "font"
+        }
+      ]
+    }
+  }
+}

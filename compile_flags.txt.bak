@@ -1,0 +1,6 @@
+-nostdlibinc
+-isystem
+/home/flynn/Documents/git-misc/rebbletool/arm-cs-tools/arm-none-eabi/include
+-I/home/flynn/Documents/git-misc/rebbletool/sdk/SDKs/4.3/sdk-core/pebble/basalt/include/
+-Ibuild/include/
+-Ibuild/basalt/
