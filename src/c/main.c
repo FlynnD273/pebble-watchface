@@ -23,19 +23,18 @@ static void battery_update_proc(Layer *layer, GContext *ctx) {
 
 static void handle_minute_tick(struct tm *tick_time, TimeUnits units_changed) {
   // Needs to be static because it's used by the system later.
-  static char s_time_text[] = "00";
-  tick_time->tm_hour %= 12;
+  if (units_changed | SECOND_UNIT) {
+    static char s_minute_text[] = "00";
 
-  strftime(s_time_text, sizeof(s_time_text), "%02M", tick_time);
-  text_layer_set_text(s_minute_layer, s_time_text);
-}
+    strftime(s_minute_text, sizeof(s_minute_text), "%02M", tick_time);
+    text_layer_set_text(s_minute_layer, s_minute_text);
+  }
+  if (units_changed | SECOND_UNIT) {
+    static char s_hour_text[] = "00";
 
-static void handle_hour_tick(struct tm *tick_time, TimeUnits units_changed) {
-  // Needs to be static because it's used by the system later.
-  static char s_time_text[] = "00";
-
-  strftime(s_time_text, sizeof(s_time_text), "%02l", tick_time);
-  text_layer_set_text(s_hour_layer, s_time_text);
+    strftime(s_hour_text, sizeof(s_hour_text), "%02l", tick_time);
+    text_layer_set_text(s_hour_layer, s_hour_text);
+  }
 }
 
 static void main_window_load(Window *window) {
@@ -68,11 +67,9 @@ static void main_window_load(Window *window) {
   // the update itself.)
   time_t now = time(NULL);
   struct tm *current_time = localtime(&now);
-  handle_minute_tick(current_time, MINUTE_UNIT);
-  handle_hour_tick(current_time, HOUR_UNIT);
+  handle_minute_tick(current_time, MINUTE_UNIT | HOUR_UNIT);
 
   tick_timer_service_subscribe(MINUTE_UNIT, handle_minute_tick);
-  tick_timer_service_subscribe(HOUR_UNIT, handle_hour_tick);
   battery_state_service_subscribe(handle_battery);
 
   layer_add_child(window_layer, text_layer_get_layer(s_minute_layer));
