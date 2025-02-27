@@ -13,10 +13,7 @@
     "sdkVersion": "3",
     "enableMultiJS": true,
     "targetPlatforms": [
-      "aplite",
-      "basalt",
-      "chalk",
-      "diorite"
+      "basalt"
     ],
     "watchapp": {
       "watchface": true
@@ -24,11 +21,54 @@
     "resources": {
       "media": [
         {
-          "characterRegex": "[0-9]",
-          "file": "fonts/Dangrek-Regular.ttf",
-          "name": "FONT_MAIN_75",
-          "targetPlatforms": null,
-          "type": "font"
+          "file": "images/0.png",
+          "name": "IMAGE_B_0",
+          "type": "bitmap"
+        },
+        {
+          "file": "images/1.png",
+          "name": "IMAGE_B_1",
+          "type": "bitmap"
+        },
+        {
+          "file": "images/2.png",
+          "name": "IMAGE_B_2",
+          "type": "bitmap"
+        },
+        {
+          "file": "images/3.png",
+          "name": "IMAGE_B_3",
+          "type": "bitmap"
+        },
+        {
+          "file": "images/4.png",
+          "name": "IMAGE_B_4",
+          "type": "bitmap"
+        },
+        {
+          "file": "images/5.png",
+          "name": "IMAGE_B_5",
+          "type": "bitmap"
+        },
+        {
+          "file": "images/6.png",
+          "name": "IMAGE_B_6",
+          "type": "bitmap"
+        },
+        {
+          "file": "images/7.png",
+          "name": "IMAGE_B_7",
+          "type": "bitmap"
+        },
+        {
+          "file": "images/8.png",
+          "name": "IMAGE_B_8",
+          "type": "bitmap"
+        },
+        {
+          "file": "images/9.png",
+          "name": "IMAGE_B_9",
+          "type": "bitmap"
         }
       ]
     }
