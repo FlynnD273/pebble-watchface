@@ -1,25 +1,28 @@
 {
-  "name": "Custom Watchface",
+  "name": "Simple Purple",
   "author": "Flynn Duniho",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "keywords": [
-    "pebble-app"
+    "pebble-watchface"
   ],
   "private": true,
   "dependencies": {},
   "pebble": {
-    "displayName": "Custom Watchface",
+    "displayName": "Simpurple",
     "uuid": "b67c4a29-1449-4093-8224-20f26c946a59",
     "sdkVersion": "3",
-    "enableMultiJS": true,
-    "targetPlatforms": [
-      "basalt"
-    ],
+    "enableMultiJS": false,
     "watchapp": {
       "watchface": true
     },
     "resources": {
       "media": [
+        {
+          "file": "images/face.png",
+          "menuIcon": true,
+          "name": "IMAGE_MENU_ICON",
+          "type": "bitmap"
+        },
         {
           "file": "images/0.png",
           "name": "IMAGE_B_0",

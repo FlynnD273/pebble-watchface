@@ -77,8 +77,8 @@ static void handle_battery(BatteryChargeState charge_state) {
  */
 static void battery_update_proc(Layer *layer, GContext *ctx) {
   GRect bounds = layer_get_bounds(layer);
-  GRect batt_bar = GRect(bounds.origin.x, bounds.origin.y,
-                         bounds.size.w * batt_percent / 100, bounds.size.h);
+  GRect batt_bar =
+      GRect(0, 0, bounds.size.w * batt_percent / 100, bounds.size.h);
   graphics_context_set_fill_color(ctx, GColorWhite);
   // Main bar
   graphics_fill_rect(ctx, batt_bar, 0, 0);
@@ -90,9 +90,8 @@ static void battery_update_proc(Layer *layer, GContext *ctx) {
     } else {
       graphics_context_set_stroke_color(ctx, GColorWhite);
     }
-    uint8_t x = bounds.origin.x + (bounds.size.w - 1) * i / 100;
-    graphics_draw_line(ctx, GPoint(x, bounds.origin.y),
-                       GPoint(x, bounds.origin.y + bounds.size.h));
+    uint8_t x = (bounds.size.w - 1) * i / 100;
+    graphics_draw_line(ctx, GPoint(x, 0), GPoint(x, bounds.size.h));
   }
 }
 
