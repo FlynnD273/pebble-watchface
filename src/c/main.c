@@ -117,6 +117,9 @@ static void handle_minute_tick(struct tm *tick_time, TimeUnits units_changed) {
   if (units_changed & HOUR_UNIT) {
     int hour = tick_time->tm_hour;
     hour %= 12;
+    if (hour == 0) {
+      hour = 12;
+    }
     if (hour < 10) {
       load_bitmap(&s_hour_10_layer, &s_hour_10_bitmap, 0, GColorWhite);
     } else {
