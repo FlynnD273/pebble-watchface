@@ -153,7 +153,7 @@ static void main_window_load(Window *window) {
   window_layer = window_get_root_layer(window);
   GRect bounds = layer_get_frame(window_layer);
   int battery_thickness = 5;
-#ifdef PBL_PLATFORM_CHALK
+#ifdef PBL_ROUND
   int vert_offset = 7;
 #else
   int vert_offset = 1;
