@@ -1,7 +1,4 @@
-#include "gcolor_definitions.h"
-#include "src/resource_ids.auto.h"
 #include <pebble.h>
-#include <stdint.h>
 
 static Window *s_main_window;
 
@@ -119,7 +116,9 @@ static void load_bitmap(BitmapLayer **layer, GBitmap **bitmap, int number,
   unload_bitmap(layer, bitmap);
   *bitmap = gbitmap_create_with_resource(DIGITS[number]);
   // For now, we just expect the images to be pure black
+#ifdef PBL_COLOR
   swap_color(*bitmap, GColorBlack, color);
+#endif
   *layer = bitmap_layer_create(
       GRect(bounds.origin.x, bounds.origin.y, bounds.size.w, bounds.size.h));
   bitmap_layer_set_bitmap(*layer, *bitmap);
@@ -154,7 +153,11 @@ static void main_window_load(Window *window) {
   window_layer = window_get_root_layer(window);
   GRect bounds = layer_get_frame(window_layer);
   int battery_thickness = 5;
+#ifdef PBL_PLATFORM_CHALK
+  int vert_offset = 7;
+#else
   int vert_offset = 1;
+#endif
   int w = 60;
   int h = 80;
 
