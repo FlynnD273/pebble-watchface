@@ -137,10 +137,12 @@ static void handle_minute_tick(struct tm *tick_time, TimeUnits units_changed) {
   }
   if (units_changed & HOUR_UNIT) {
     int hour = tick_time->tm_hour;
-    // Convert 24 to 12 hour time
-    hour %= 12;
-    if (hour == 0) {
-      hour = 12;
+    if (!clock_is_24h_style()) {
+      // Convert 24 to 12 hour time
+      hour %= 12;
+      if (hour == 0) {
+        hour = 12;
+      }
     }
     load_bitmap(&s_hour_10_layer, &s_hour_10_bitmap, hour / 10, hour_color);
     load_bitmap(&s_hour_1_layer, &s_hour_1_bitmap, hour % 10, hour_color);
